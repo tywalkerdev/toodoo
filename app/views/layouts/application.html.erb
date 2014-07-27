@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shitoodoo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="//http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container jumbotron col-lg-12">
+	<ul class="nav navbar-header nav-pills">
+			<a href="#" class='navbar-link pull-left'><li>home</li></a>
+			<a href="#" class='navbar-link pull-left'><li>about</li></a>
+			<a href="#" class='navbar-link pull-left'><li>feed</li></a>
+			<a href="#" class='navbar-link pull-left'><li>contact</li></a>
+	</ul>
+	<ul class="nav navbar-header nav-pills pull-right">
+			<p class="navbar-text pull-right">
+				<% if user_signed_in? %>
+					Logged in as <%= current_user.email %>
+					<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-link" %>
+				<% else %>
+					<%= link_to "Sign In", new_user_session_path, class: "navbar-link" %>
+				<% end %>
+			</p>
+	</ul>
+	<div class="col-lg-10 col-lg-offset-2">
+		<h1>SHITOODOO APP</h1>
+		<h3>If you got... stuff to do, you came to the right place</h3>
+		<button class="btn btn-lg btn-warning"><%= link_to "Sign Up Here", new_user_registration_path %></button>
+	</div>
+</div>
+
+<div class="col-lg-10 col-lg-offset-2">
+
+<!-- ERROR HANDLING -->
+	<% if notice %>
+		<p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+		<p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+
+<%= yield %>
+</div>
+
+</body>
+</html>

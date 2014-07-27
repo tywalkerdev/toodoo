@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toodoo: MyString
+  description: MyText
+  due: 2014-07-27 01:33:39
+  done: false
+  remind_me: false
+  reminder: 2014-07-27 01:33:39
+
+two:
+  toodoo: MyString
+  description: MyText
+  due: 2014-07-27 01:33:39
+  done: false
+  remind_me: false
+  reminder: 2014-07-27 01:33:39
